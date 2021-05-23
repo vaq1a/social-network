@@ -2,12 +2,20 @@ import Preloader from "../Preloader";
 import Cell from "../UI/Grid/Cell";
 import Tweet from "./Tweet";
 import {useSelector} from "react-redux";
-import {selectIsTweetsLoading, selectTweetsItems} from "../../store/ducks/tweets/selectors";
+import {
+    selectIsAddNewTweetError,
+    selectIsAddNewTweetLoading,
+    selectIsTweetsLoading,
+    selectTweetsItems
+} from "../../store/ducks/tweets/selectors";
 import {Link} from "react-router-dom";
 
 const Tweets = () => {
     const tweets = useSelector(selectTweetsItems);
     const tweetsIsLoading = useSelector(selectIsTweetsLoading);
+
+    const newTweetIsLoading = useSelector(selectIsAddNewTweetLoading);
+    const newTweetIsError = useSelector(selectIsAddNewTweetError);
 
     if (tweetsIsLoading) {
         return <Preloader />;
@@ -32,6 +40,9 @@ const Tweets = () => {
                         </Cell>
                     </Link>
                 ))
+            }
+            {
+                newTweetIsLoading && <Preloader />
             }
         </>
     )

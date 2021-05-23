@@ -50,7 +50,8 @@ const EntryField = () => {
                         </div>
                         <ProgressBar className={styles.progress}
                                      count={text.length <= MAX_LENGTH ? count : 'full'} />
-                        <Button onClick={handleClickAddTweet}>
+                        <Button onClick={handleClickAddTweet}
+                                disabled={!text || text.length > MAX_LENGTH}>
                             Твитнуть
                         </Button>
                     </div>

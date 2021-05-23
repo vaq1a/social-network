@@ -7,7 +7,7 @@ import {TweetsApi} from "../../../services/api/tweetsApi";
 export function* fetchTweetRequest({payload: tweetId}) {
     try {
         const tweet = yield call(TweetsApi.fetchTweet, tweetId);
-        yield put(setTweet(tweet));
+        yield put(setTweet(tweet[0]));
     } catch (error) {
         yield put(setTweetLoadingState(LoadingState.ERROR));
     }

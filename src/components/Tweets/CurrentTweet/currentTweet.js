@@ -32,13 +32,13 @@ const CurrentTweet = () => {
         <>
             {
                 tweet && (
-                    <Tweet image={tweet[0].user.avatarUrl}
-                           id={tweet[0]._id}
-                           login={tweet[0].user.username}
+                    <Tweet image={tweet.user.avatarUrl}
+                           id={tweet._id}
+                           login={tweet.user.username}
                            time="1h"
                            countComment="2"
-                           name={tweet[0].user.fullname}>
-                        {tweet[0].text}
+                           name={tweet.user.fullname}>
+                        {tweet.text}
                     </Tweet>
                 )
             }

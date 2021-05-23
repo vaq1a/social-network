@@ -1,10 +1,15 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import {addNewTweet, setTweets, setTweetsLoadingState, TweetsActionsType} from "./actionCreators";
+import {
+    addNewTweet,
+    setAddNewTweetLoadingState,
+    setTweets,
+    setTweetsLoadingState,
+    TweetsActionsType
+} from "./actionCreators";
 import {TweetsApi} from "../../../services/api/tweetsApi";
 import {LoadingState} from "./contracts/state";
 
 export function* fetchTweetsRequest() {
-    console.log("fetchTweetsRequest");
     try {
         const items = yield call(TweetsApi.fetchTweets);
         //dispatch
@@ -15,7 +20,6 @@ export function* fetchTweetsRequest() {
 }
 
 export function* fetchAddNewTweetRequest({payload}) {
-    console.log("fetchAddNewTweetRequest");
     try {
         const data = {
             _id: Math.random().toString(36).substring(2),
@@ -30,7 +34,7 @@ export function* fetchAddNewTweetRequest({payload}) {
         //dispatch
         yield put(addNewTweet(item));
     } catch (error) {
-        yield put(setTweetsLoadingState(LoadingState.ERROR))
+        yield put(setAddNewTweetLoadingState(LoadingState.ERROR))
     }
 }
 

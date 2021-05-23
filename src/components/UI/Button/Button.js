@@ -25,6 +25,7 @@ const Button = ({
     color = BUTTON_COLORS.BlUE,
     full = false,
     onClick = () => {},
+    disabled = false,
 
 }) => {
 
@@ -40,6 +41,7 @@ const Button = ({
 
     return (
         <button className={classes}
+                disabled={disabled}
                 onClick={onClick}>
             {children}
         </button>

@@ -1,0 +1,16 @@
+@import '../../../assets/scss/utils';
+
+.sideMenu__item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .sideMenu__icon {
+    margin-right: rem(20);
+  }
+
+  .sideMenu__title {
+    font-size: rem(14);
+    font-weight: 600;
+  }
+}

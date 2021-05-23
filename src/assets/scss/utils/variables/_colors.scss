@@ -1,0 +1,61 @@
+$main-color: #1da1f2;
+
+
+$white: #ffffff;
+$black: #000000;
+$gray: #707070;
+$red: #f00000;
+
+$main-red: #ff3e3e;
+
+$green: #05c87b;
+$light-green: #e5fbf1;
+$middle-green: #00e289;
+$light-blue: #55d4f2;
+$blue: #55d4f2;
+$violet: #8c52ff;
+$ground: #c1ae5e;
+$light-ground: #E0CB77;
+$gray-middle: #797979;
+$gray-light: #b5b4b4;
+$gray-bg-light: #f0f0f0;
+$gray-bd-light: #dddddd;
+$white-gray: #ededed;
+$tomato: #f56d5b;
+$gray-lighten: #d0d0d0;
+$white-light: #f7f7f7;
+$yotpo-blue: #2f84ed;
+$yellow: #f1b048;
+$warm-grey: #888888;
+$light-gray: #f5f5f5;
+$border-color: #eaeaea;
+$crimson: #e3115d;
+$pink: #bd6fff;
+$pink-light: #d0b7ff;
+$orange: #ef8b6a;
+$beige: #f1eada;
+$gray34: #575757;
+$apricot: #ffc263;
+$black-two: #333231;
+$dusty-green: #7daf80;
+$pale-orange: #ffbe59;
+$cerise: #e3115d;
+
+// states
+
+$green_hover: $middle-green;
+$blue_hover: #90EAFF;
+$ground_hover: #d6c26d;
+$gray_dis: $gray-bd-light;
+$blue_input_focus: #eaf4f5;
+$violet_hover: lighten($violet,2%);
+$crimson_hover: lighten($crimson,2%);
+$box-shadow-main: rgba(0, 0, 0, 0.16);
+$box-shadow-bottom: rem(0 3 6 0) $box-shadow-main;
+$overlay: rgba(0,0,0,0.4);
+$main-border: $blue_input_focus;
+$filter-text: #181c1c;
+// defs
+
+$text-color: $gray;
+$link-color: $text-color;

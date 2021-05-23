@@ -1,0 +1,9 @@
+@import '../../../assets/scss/utils';
+
+.input {
+  width: 100%;
+  padding: rem(10 5);
+  background-color: transparent;
+  border: none;
+  border-bottom: rem(3) solid #9f9d9d;
+}

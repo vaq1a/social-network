@@ -9,6 +9,7 @@ import {
     selectTweetsItems
 } from "../../store/ducks/tweets/selectors";
 import {Link} from "react-router-dom";
+import Notification from "../Notification";
 
 const Tweets = () => {
     const tweets = useSelector(selectTweetsItems);
@@ -23,6 +24,9 @@ const Tweets = () => {
 
     return (
         <>
+            {
+                newTweetIsLoading && <Preloader />
+            }
             {
                 tweets.map(({_id, text, user: {avatarUrl, username, fullname}}) => (
                     <Link to={`/home/tweet/${_id}`}
@@ -42,7 +46,10 @@ const Tweets = () => {
                 ))
             }
             {
-                newTweetIsLoading && <Preloader />
+                newTweetIsError && (
+                    <Notification text={'Error...Try again'}
+                                  isVisible={newTweetIsError} />
+                )
             }
         </>
     )

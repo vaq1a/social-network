@@ -11,34 +11,14 @@
       }
     },
     {
-      "_id": "32mylca986d",
-      "text": "123",
+      "_id": "fcwphnv4tuk",
+      "text": "Hello, bro\n",
       "user": {
         "fullname": "Test test",
         "username": "test",
         "avatarUrl": "https://source.unsplash.com/random/100x100?5"
       },
       "id": 2
-    },
-    {
-      "_id": "ceykfcy5e4s",
-      "text": "434",
-      "user": {
-        "fullname": "Test test",
-        "username": "test",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": 3
-    },
-    {
-      "_id": "po8xlg8bo8",
-      "text": "45",
-      "user": {
-        "fullname": "Test test",
-        "username": "test",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": 4
     }
   ],
   "tags": [

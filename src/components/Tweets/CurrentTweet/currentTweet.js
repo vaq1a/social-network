@@ -1,10 +1,11 @@
-import Tweet from "../Tweet";
+import styles from './CurrentTweet.module.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {selectTweetItem, selectTweetLoadingState} from "../../../store/ducks/tweet/selectors";
 import Preloader from "../../Preloader";
 import {fetchTweet, setTweet} from "../../../store/ducks/tweet/actionCreators";
 import {useEffect} from "react";
 import {useParams} from "react-router";
+import Photo from "../../UI/Photo";
 
 const CurrentTweet = () => {
     const dispatch = useDispatch();
@@ -32,14 +33,23 @@ const CurrentTweet = () => {
         <>
             {
                 tweet && (
-                    <Tweet image={tweet.user.avatarUrl}
-                           id={tweet._id}
-                           login={tweet.user.username}
-                           time="1h"
-                           countComment="2"
-                           name={tweet.user.fullname}>
-                        {tweet.text}
-                    </Tweet>
+                    <div className={styles.tweet}>
+                           <div className={styles.header}>
+                               <Photo image={tweet.user.avatarUrl}
+                                      className={styles.photo} />
+                               <div className={styles.user}>
+                                   <div className={styles.name}>
+                                       {tweet.user.fullname}
+                                   </div>
+                                   <div className={styles.login}>
+                                       @{tweet.user.username}
+                                   </div>
+                               </div>
+                           </div>
+                           <div className={styles.text}>
+                               {tweet.text}
+                           </div>
+                    </div>
                 )
             }
         </>

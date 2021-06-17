@@ -1,0 +1,44 @@
+@import '../../assets/scss/utils';
+
+.field {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: rem(4 20);
+
+  div:first-child {
+    display: flex;
+    align-items: center;
+  }
+
+  div:last-child {
+    display: flex;
+    align-items: center;
+  }
+
+  .gallery {
+    cursor: pointer;
+    margin-right: rem(20);
+  }
+
+  .reactions {
+    cursor: pointer;
+  }
+
+  .count {
+    color: #b3b3b3;
+    margin-right: rem(5);
+  }
+
+  .progress {
+    margin-right: rem(5);
+  }
+}

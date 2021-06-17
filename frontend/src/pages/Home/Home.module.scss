@@ -1,0 +1,34 @@
+@import '../../assets/scss/utils';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  padding: rem(30);
+  width: 33.3%;
+}
+
+.entryField {
+  border-bottom: rem(10) solid #8080804f;
+}
+
+.title {
+  font-size: rem(18);
+  font-weight: 700;
+}
+
+.twitter {
+  margin-bottom: rem(20);
+  fill: $main-color;
+}
+
+.item {
+  margin-bottom: rem(30);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}

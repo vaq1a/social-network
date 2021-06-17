@@ -1,0 +1,14 @@
+@import '../../../assets/scss/utils';
+
+.textarea {
+  width: 100%;
+  border: none;
+  color: #000;
+  resize: vertical;
+  padding: rem(5 20);
+  outline: none;
+
+  &::placeholder {
+    color: gray;
+  }
+}

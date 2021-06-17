@@ -1,0 +1,42 @@
+.hidden-lg {
+  @include desktop {
+    display: none;
+  }
+}
+.visible-lg {
+  display: none;
+  @include desktop {
+    display: block;
+  }
+}
+.visible-lg-inline {
+  display: none;
+  @include desktop {
+    display: inline;
+  }
+}
+.hidden-md {
+  display: none !important;
+  @include desktop {
+    display: inline-block !important;
+  }
+}
+
+.visible-md {
+  display: block;
+  @include desktop {
+    display: none;
+  }
+}
+.hidden-xs {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.hidden-md-lg {
+  display: block;
+  @include tablet {
+    display: none;
+  }
+}

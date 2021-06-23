@@ -5,7 +5,7 @@ import {validationResult} from "express-validator";
 class TweetController {
     async index(req, res) {
         try {
-            const tweets = await TweetModel.find({});
+            const tweets = await TweetModel.find({}).populate('user').sort({'createdAt': '-1'});
 
             res.json({
                 status: 'success',
@@ -33,14 +33,14 @@ class TweetController {
 
                 const data = {
                     text: req.body.text,
-                    user: user._id
+                    user: user
                 }
 
                 const tweet = await TweetModel.create(data);
 
                 res.json({
                     status: 'success',
-                    tweet: tweet
+                    message: tweet
                 });
             }
         } catch (error) {
@@ -67,7 +67,7 @@ class TweetController {
             const tweet = await TweetModel.findById(id);
 
             if(tweet) {
-                if(String(tweet.user) === String(req.user._id)) {
+                if(String(tweet.user._id) === String(req.user._id)) {
                     tweet.remove();
                     res.json({
                         status: 'success',
@@ -102,7 +102,7 @@ class TweetController {
                 return;
             }
 
-            const tweet = await TweetModel.findById(id);
+            const tweet = await TweetModel.findById(id).populate('user');
 
             if(!tweet) {
                 res.status(404).send();

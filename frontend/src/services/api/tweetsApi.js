@@ -1,13 +1,16 @@
-import axios from "axios";
+import {axios} from '../../core/axios';
 
 export const TweetsApi = {
-    fetchTweets: () => {
-        return axios.get('/tweets').then(({data}) => data);
+    fetchTweets: async () => {
+        const {data} = await axios.get('/tweets');
+        return data.message;
     },
-    fetchTweet: (tweetId) => {
-        return axios.get(`/tweets/${tweetId}`).then(({data}) => data);
+    fetchTweet: async (tweetId) => {
+        const {data} = await axios.get(`/tweets/${tweetId}`);
+        return data.message;
     },
-    fetchAddNewTweet: (payload) => {
-        return axios.post(`/tweets`, payload).then(({data}) => data);
+    fetchAddNewTweet: async (payload) => {
+        const {data} = await axios.post(`/tweets`, payload);
+        return data.message;
     }
 }

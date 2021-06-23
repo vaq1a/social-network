@@ -10,3 +10,5 @@ const composeEnhancers = (process.env.NODE_ENV === 'development' ? window.__REDU
 export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga);
+
+window.store = store;

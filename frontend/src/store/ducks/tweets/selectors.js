@@ -1,11 +1,10 @@
-import {createSelector} from "reselect";
 import {LoadingState} from "./contracts/state";
 
-export const selectTweets = (state) => state.tweets;
+export const selectTweetsState = (state) => state.tweets;
 
-export const selectLoadingState = (state) => selectTweets(state).loadingState;
+export const selectLoadingState = (state) => selectTweetsState(state).loadingState;
 
-export const selectAddNewTweetLoadingState = (state) => selectTweets(state).addNewTweetState;
+export const selectAddNewTweetLoadingState = (state) => selectTweetsState(state).addNewTweetState;
 
 export const selectIsTweetsLoading = (state) => selectLoadingState(state) === LoadingState.LOADING;
 
@@ -15,4 +14,4 @@ export const selectIsAddNewTweetError = (state) => selectAddNewTweetLoadingState
 
 export const selectIsTweetsLoaded = (state) => selectLoadingState(state) === LoadingState.LOADED;
 
-export const selectTweetsItems = createSelector(selectTweets, tweets => tweets.items.message);
+export const selectTweetsItems = (state) => selectTweetsState(state).items;

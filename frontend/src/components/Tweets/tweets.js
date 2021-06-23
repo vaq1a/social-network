@@ -11,6 +11,8 @@ import {
 import {Link} from "react-router-dom";
 import Notification from "../Notification";
 
+const avatarUrl = 'https://w7.pngwing.com/pngs/831/88/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile.png';
+
 const Tweets = () => {
     const tweets = useSelector(selectTweetsItems);
     const tweetsIsLoading = useSelector(selectIsTweetsLoading);
@@ -28,7 +30,7 @@ const Tweets = () => {
                 newTweetIsLoading && <Preloader />
             }
             {
-                tweets.map(({_id, text, user: {avatarUrl, username, fullname}}) => (
+                tweets && tweets.map(({_id, text, createdAt, user: {username, fullname}}) => (
                     <Link to={`/home/tweet/${_id}`}
                           style={{textDecoration: "none"}}
                           key={_id}>
@@ -36,7 +38,7 @@ const Tweets = () => {
                             <Tweet image={avatarUrl}
                                    id={_id}
                                    login={username}
-                                   time="1h"
+                                   time={createdAt}
                                    countComment="2"
                                    name={fullname}>
                                 {text}

@@ -6,6 +6,11 @@ import {fetchTweet, setTweet} from "../../../store/ducks/tweet/actionCreators";
 import {useEffect} from "react";
 import {useParams} from "react-router";
 import Photo from "../../UI/Photo";
+import {format} from 'date-fns';
+import ruLang from 'date-fns/locale/ru';
+
+const avatarUrl = 'https://w7.pngwing.com/pngs/831/88/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile.png';
+
 
 const CurrentTweet = () => {
     const dispatch = useDispatch();
@@ -35,7 +40,7 @@ const CurrentTweet = () => {
                 tweet && (
                     <div className={styles.tweet}>
                            <div className={styles.header}>
-                               <Photo image={tweet.user.avatarUrl}
+                               <Photo image={avatarUrl}
                                       className={styles.photo} />
                                <div className={styles.user}>
                                    <div className={styles.name}>
@@ -49,6 +54,15 @@ const CurrentTweet = () => {
                            <div className={styles.text}>
                                {tweet.text}
                            </div>
+                        <div className={styles.date}>
+                            <div className={styles.date__time}>
+                                {format(new Date(tweet.createdAt), "HH:mm")}
+                            </div>
+                            <div>
+                                {format(new Date(tweet.createdAt), "d MMM y г.", {locale: ruLang})}
+                            </div>
+                        </div>
+
                     </div>
                 )
             }

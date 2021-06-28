@@ -1,12 +1,13 @@
+import React from 'react';
 import styles from './Input.module.scss';
-import {classNameToString} from "../../../utils/classNameToString";
+import {classNameToString} from "../../../../utils/classNameToString";
 
-const Input = ({
+const Input = React.forwardRef(({
     type = 'text',
     placeholder = '',
     className = '',
-
-}) => {
+    ...restProps
+}, ref) => {
 
     const classes = classNameToString(
         styles.input,
@@ -16,9 +17,11 @@ const Input = ({
 
     return (
         <input type={type}
+               ref={ref}
                className={classes}
-               placeholder={placeholder}/>
+               placeholder={placeholder}
+               {...restProps} />
     )
-}
+});
 
 export default Input;

@@ -5,6 +5,8 @@ export const TweetsActionsType = {
     ADD_NEW_TWEET: 'tweets/ADD_NEW_TWEET',
     FETCH_ADD_NEW_TWEET: 'tweets/FETCH_ADD_NEW_TWEET',
     SET_ADD_NEW_TWEET_LOADING_STATE: 'tweets/SET_ADD_NEW_TWEET_LOADING_STATE',
+    DELETE_TWEET: 'tweets/DELETE_TWEET',
+    UPDATE_TWEET: 'tweets/UPDATE_TWEET',
 
 };
 
@@ -42,3 +44,16 @@ export const setAddNewTweetLoadingState = (payload) => ({
     payload,
 
 });
+
+export const deleteTweetAC = (payload) => ({
+    type: TweetsActionsType.DELETE_TWEET,
+    payload,
+
+})
+
+export const updateTweetAC = (payload) => ({
+    type: TweetsActionsType.UPDATE_TWEET,
+    payload,
+
+})
+

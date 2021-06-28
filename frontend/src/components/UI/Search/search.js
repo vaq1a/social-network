@@ -1,4 +1,4 @@
-import Input from "../Input";
+import Input from "../Form/Input";
 
 const Search = () => {
     return (

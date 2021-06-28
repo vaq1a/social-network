@@ -2,14 +2,14 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import SignIn from "./pages/SignIn";
+import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 
 function App() {
     return (
         <Switch>
-            <Route path="/signin">
-                <SignIn/>
+            <Route path="/auth">
+                <Auth/>
             </Route>
             <Route path="/">
                 <Home />

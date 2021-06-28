@@ -8,7 +8,6 @@ import {
     selectIsTweetsLoading,
     selectTweetsItems
 } from "../../store/ducks/tweets/selectors";
-import {Link} from "react-router-dom";
 import Notification from "../Notification";
 
 const avatarUrl = 'https://w7.pngwing.com/pngs/831/88/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile.png';
@@ -31,20 +30,16 @@ const Tweets = () => {
             }
             {
                 tweets && tweets.map(({_id, text, createdAt, user: {username, fullname}}) => (
-                    <Link to={`/home/tweet/${_id}`}
-                          style={{textDecoration: "none"}}
-                          key={_id}>
-                        <Cell>
-                            <Tweet image={avatarUrl}
-                                   id={_id}
-                                   login={username}
-                                   time={createdAt}
-                                   countComment="2"
-                                   name={fullname}>
-                                {text}
-                            </Tweet>
-                        </Cell>
-                    </Link>
+                    <Cell key={_id}>
+                        <Tweet image={avatarUrl}
+                               id={_id}
+                               login={username}
+                               time={createdAt}
+                               countComment="2"
+                               name={fullname}>
+                            {text}
+                        </Tweet>
+                    </Cell>
                 ))
             }
             {

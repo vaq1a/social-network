@@ -31,3 +31,15 @@
   font-size: rem(21);
   line-height: 1.235;
 }
+
+.date {
+  border-top: 1px solid gray;
+  display: flex;
+  color: #dbd2d2;
+  margin-top: 15px;
+  padding-top: 15px;
+
+  .date__time {
+    margin-right: 15px;
+  }
+}

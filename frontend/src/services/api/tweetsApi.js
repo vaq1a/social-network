@@ -12,5 +12,13 @@ export const TweetsApi = {
     fetchAddNewTweet: async (payload) => {
         const {data} = await axios.post(`/tweets`, payload);
         return data.message;
+    },
+    fetchDeleteTweet: async (tweetId) => {
+        const {data} = await axios.delete(`/tweets/${tweetId}`);
+        return data.message;
+    },
+    fetchUpdateTweet: async (tweetId, tweet) => {
+        const {data} = await axios.put(`/tweets/${tweetId}`, tweet);
+        return data.message;
     }
 }

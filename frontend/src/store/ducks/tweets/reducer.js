@@ -37,6 +37,19 @@ export const tweetsReducer = produce((draft, action) => {
         case TweetsActionsType.SET_ADD_NEW_TWEET_LOADING_STATE:
             draft.addNewTweetState = payload;
             break;
+        case TweetsActionsType.DELETE_TWEET:
+            draft.items = draft.items.filter(item => item._id !== payload);
+            break;
+        case TweetsActionsType.UPDATE_TWEET:
+            draft.items = draft.items.map(item => {
+               if(item._id === payload.tweetId) {
+                   item.text = payload.text;
+                   return item;
+               } else {
+                   return item;
+               }
+            });
+            break;
         default:
             return draft;
     }

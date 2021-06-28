@@ -15,7 +15,7 @@ export function* fetchTweetsRequest() {
         //dispatch
         yield put(setTweets(items));
     } catch (error) {
-        yield put(setTweetsLoadingState(LoadingState.ERROR))
+        yield put(setTweetsLoadingState(LoadingState.ERROR));
     }
 }
 
@@ -29,11 +29,33 @@ export function* fetchAddNewTweetRequest({payload}) {
         //dispatch
         yield put(addNewTweet(item));
     } catch (error) {
-        yield put(setAddNewTweetLoadingState(LoadingState.ERROR))
+        yield put(setAddNewTweetLoadingState(LoadingState.ERROR));
+    }
+}
+
+export function* fetchDeleteTweetRequest({payload: tweetId}) {
+    try {
+        yield call(TweetsApi.fetchDeleteTweet, tweetId);
+    } catch (error) {
+        yield put(setAddNewTweetLoadingState(LoadingState.ERROR));
+    }
+}
+
+export function* fetchUpdateTweetRequest({payload: {tweetId, text}}) {
+    try {
+        const tweet = {
+            text,
+
+        }
+        yield call(TweetsApi.fetchUpdateTweet, tweetId, tweet);
+    } catch (error) {
+        yield put(setAddNewTweetLoadingState(LoadingState.ERROR));
     }
 }
 
 export function* tweetsSaga() {
     yield takeLatest(TweetsActionsType.FETCH_TWEETS, fetchTweetsRequest)
     yield takeLatest(TweetsActionsType.FETCH_ADD_NEW_TWEET, fetchAddNewTweetRequest)
+    yield takeLatest(TweetsActionsType.DELETE_TWEET, fetchDeleteTweetRequest)
+    yield takeLatest(TweetsActionsType.UPDATE_TWEET, fetchUpdateTweetRequest)
 }

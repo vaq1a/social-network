@@ -75,7 +75,7 @@ const Home = () => {
                             Твиты
                         </H4>
                     </Route>
-                    <Route path={`/home/tweet`}>
+                    <Route path={`/home/tweets`}>
                         <H4 className={styles.title}>
                             Твитнуть
                         </H4>
@@ -91,7 +91,7 @@ const Home = () => {
                        exact>
                     <Tweets />
                 </Route>
-                <Route path="/home/tweet/:id"
+                <Route path="/home/tweets/:id"
                        exact>
                     <CurrentTweet />
                 </Route>

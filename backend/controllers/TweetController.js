@@ -82,7 +82,6 @@ class TweetController {
 
             if(!tweet) {
                 res.status(404).send();
-                return;
             }
         } catch (error) {
             res.json({
@@ -139,7 +138,7 @@ class TweetController {
                             tweet.save();
                             return res.json({
                                 status: 'success',
-                                tweet: tweet
+                                message: tweet
                             });
                         }
                     }

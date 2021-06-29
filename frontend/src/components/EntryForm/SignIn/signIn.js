@@ -7,7 +7,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import Form from "../../UI/Form/form";
-import {AuthApi} from "../../../services/api/authApi";
+import {useDispatch} from "react-redux";
+import {fetchUserAC} from "../../../store/ducks/user/actionCreator";
+import {useHistory} from "react-router-dom";
 
 const signInSchema = yup.object().shape({
     username: yup.string().required(),
@@ -20,18 +22,24 @@ const SignIn = ({
     visibleModal = '',
 
 }) => {
-
+    const dispatch = useDispatch();
+    const history = useHistory();
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(signInSchema)
     });
 
-    const onSubmit = async (data) => {
-        const user = await AuthApi.signIn({
-            username: data.username,
-            password: data.password
-        });
+    const onSubmit = ({username, password}) => {
+        const user = {
+            username,
+            password,
+
+        };
+
+        dispatch(fetchUserAC(user));
 
         handleClose();
+
+        history.push(`/home`);
     }
 
     return (

@@ -145,7 +145,7 @@ class UserController {
     async afterLogin(req, res) {
         try {
 
-            const user = req.user ? req.user : undefined;
+            const user = req.user ? req.user.toJSON() : undefined;
 
             res.json({
                 status: "success",

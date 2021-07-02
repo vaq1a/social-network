@@ -35,7 +35,7 @@ class UserController {
                 fullname: req.body.fullname,
                 username: req.body.username,
                 password: generateMD5(req.body.password + process.env.SECRET_KEY),
-                confirmedHash: generateMD5(process.env.SECRET_KEY || Math.random().toString()),
+                confirmedHash: generateMD5(process.env.SECRET_KEY + Math.random().toString()),
                 confirmed: false,
             }
 
@@ -82,7 +82,10 @@ class UserController {
                 user.confirmed = true;
                 user.save();
 
-                res.status(201).json({message: 'success'});
+                res.json({
+                    message: 'success',
+                    data: user
+                });
             } else {
                 res.status(404).json({
                     status: 'error',

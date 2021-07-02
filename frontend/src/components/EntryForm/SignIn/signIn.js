@@ -48,10 +48,12 @@ const SignIn = ({
                handleClose={handleClose}>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Input type={"text"}
+                       errors={errors}
                        className={styles.input}
                        placeholder={"Username"}
                        {...register("username")}/>
                 <Input type={"password"}
+                       errors={errors}
                        className={styles.input}
                        placeholder={"Password"}
                        {...register("password")} />
@@ -61,20 +63,6 @@ const SignIn = ({
                     Войти
                 </Button>
             </Form>
-            {
-                errors?.username && (
-                    <div>
-                        {errors.username.message}
-                    </div>
-                )
-            }
-            {
-                errors?.password && (
-                    <div>
-                        {errors.password.message}
-                    </div>
-                )
-            }
         </Modal>
     )
 }

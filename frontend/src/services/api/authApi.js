@@ -5,6 +5,10 @@ export const AuthApi = {
         const {data} = await axios.post('/auth/login', payload);
         return data.data;
     },
+    signUp: async (payload) => {
+      const {data} = await axios.post('/auth/registration', payload);
+      return data;
+    },
     getUserProfile: async () => {
         const {data} = await axios.get('/users/me');
         return data.data;

@@ -13,6 +13,15 @@ export function* fetchUserRequest({payload}) {
     }
 }
 
+export function* fetchSignUpUserRequest({payload}) {
+    try {
+        const data = yield call(AuthApi.signUp, payload);
+    } catch (error) {
+        yield put(setLoadingStateUserAC(LoadingState.ERROR));
+    }
+}
+
 export function* userSaga() {
     yield takeLatest(UserTypes.FETCH_USER, fetchUserRequest)
+    yield takeLatest(UserTypes.FETCH_SIGN_UP_USER, fetchSignUpUserRequest)
 }

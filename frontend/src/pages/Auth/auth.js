@@ -21,7 +21,7 @@ const Auth = () => {
     }
 
     const handleClose = () => {
-        setVisibleModal('');
+        setVisibleModal(undefined);
     }
 
     return (

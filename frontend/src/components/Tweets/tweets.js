@@ -29,7 +29,7 @@ const Tweets = () => {
                 newTweetIsLoading && <Preloader />
             }
             {
-                tweets && tweets.map(({_id, text, createdAt, user: {username, fullname}}) => (
+                !!tweets.length && tweets.map(({_id, text, createdAt, user: {username, fullname}}) => (
                     <Cell key={_id}>
                         <Tweet image={avatarUrl}
                                id={_id}

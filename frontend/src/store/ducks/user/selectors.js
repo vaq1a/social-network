@@ -1,5 +1,6 @@
 
 const getUserState = (state) => state.user;
 
-export const isAuthUser = (state) => getUserState(state).user.length !== 0;
+export const isAuth = (state) => !!getUserState(state).user;
 
+export const isUserLoadingState = (state) => getUserState(state).loadingState;

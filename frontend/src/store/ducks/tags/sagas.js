@@ -1,7 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import {setTags, setTagsLoadingState, TagsActionsType} from "./actionCreators";
+import {setTags, setTagsLoadingState} from "./actionCreators";
 import {LoadingState} from "../tweets/contracts/state";
 import {TagsApi} from "../../../services/api/tagsApi";
+import {TagsActionsType} from "./contracts/actionTypes";
 
 // Our worker Saga: will perform the async increment task
 export function* fetchTagsRequest() {

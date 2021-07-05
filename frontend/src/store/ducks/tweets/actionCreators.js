@@ -1,14 +1,4 @@
-export const TweetsActionsType = {
-    SET_TWEETS: 'tweets/SET_TWEETS',
-    FETCH_TWEETS: 'tweets/FETCH_TWEETS',
-    SET_LOADING_STATE: 'tweets/SET_LOADING_STATE',
-    ADD_NEW_TWEET: 'tweets/ADD_NEW_TWEET',
-    FETCH_ADD_NEW_TWEET: 'tweets/FETCH_ADD_NEW_TWEET',
-    SET_ADD_NEW_TWEET_LOADING_STATE: 'tweets/SET_ADD_NEW_TWEET_LOADING_STATE',
-    DELETE_TWEET: 'tweets/DELETE_TWEET',
-    UPDATE_TWEET: 'tweets/UPDATE_TWEET',
-
-};
+import {TweetsActionsType} from "./contracts/actionTypes";
 
 export const setTweets = (payload) => ({
    type: TweetsActionsType.SET_TWEETS,

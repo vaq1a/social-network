@@ -1,6 +1,6 @@
 import produce from 'immer';
-import {TweetsActionsType} from "./actionCreators";
 import {LoadingState} from "./contracts/state";
+import {TweetsActionsType} from "./contracts/actionTypes";
 
 const initialTweetsState = {
     items: [],

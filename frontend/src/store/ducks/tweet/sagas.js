@@ -1,7 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects'
-import {setTweet, setTweetLoadingState, TweetActionTypes} from "./actionCreators";
+import {setTweet, setTweetLoadingState} from "./actionCreators";
 import {LoadingState} from "./contracts/state";
 import {TweetsApi} from "../../../services/api/tweetsApi";
+import {TweetActionTypes} from "./contracts/actionTypes";
 
 // Our worker Saga: will perform the async increment task
 export function* fetchTweetRequest({payload: tweetId}) {

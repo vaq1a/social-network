@@ -5,33 +5,34 @@ import {
 } from "react-router-dom";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
-import {useCallback, useEffect} from "react";
-import {AuthApi} from "./services/api/authApi";
-import {setUserAC} from "./store/ducks/user/actionCreator";
+import {useEffect} from "react";
+import {fetchUserDataAC} from "./store/ducks/user/actionCreator";
 import {useDispatch, useSelector} from "react-redux";
-import {isAuthUser} from "./store/ducks/user/selectors";
+import {isAuth, isUserLoadingState} from "./store/ducks/user/selectors";
+import {LoadingState} from "./store/ducks/user/contracts/state";
 
 function App() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const isAuth = useSelector(isAuthUser);
 
-    const checkAuth = useCallback( async () => {
-        try {
-            const data = await AuthApi.getUserProfile();
-            dispatch(setUserAC(data));
-        } catch (error) {
-            console.log(error);
-        }
+    const isAuthUser = useSelector(isAuth);
+    const isLoadingStateUser = useSelector(isUserLoadingState);
+
+    const isReady = isLoadingStateUser !== LoadingState.NEVER &&
+                    isLoadingStateUser !== LoadingState.LOADING;
+
+
+    useEffect(() => {
+        dispatch(fetchUserDataAC());
     }, [dispatch]);
 
     useEffect(() => {
-        checkAuth();
-    }, [checkAuth]);
-
-    useEffect(() => {
-        isAuth && history.replace('/home');
-    }, [isAuth, history]);
+        if (!isAuthUser && isReady) {
+            history.push('/auth');
+        } else {
+            history.push('/home');
+        }
+    }, [isAuthUser, isReady, history]);
 
     return (
         <Switch>

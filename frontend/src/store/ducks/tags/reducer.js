@@ -1,6 +1,6 @@
 import produce from "immer";
-import {TagsActionsType} from "./actionCreators";
 import {LoadingState} from "./contracts/state";
+import {TagsActionsType} from "./contracts/actionTypes";
 
 const initialTagsState = {
     items: [],

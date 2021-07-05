@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import Form from "../../UI/Form/form";
 import {useDispatch} from "react-redux";
-import {fetchUserAC} from "../../../store/ducks/user/actionCreator";
+import {fetchSignInUserAC} from "../../../store/ducks/user/actionCreator";
 import {useHistory} from "react-router-dom";
 
 const signInSchema = yup.object().shape({
@@ -35,7 +35,7 @@ const SignIn = ({
 
         };
 
-        dispatch(fetchUserAC(user));
+        dispatch(fetchSignInUserAC(user));
 
         handleClose();
 

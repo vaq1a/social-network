@@ -3,11 +3,11 @@ import {
     addNewTweet,
     setAddNewTweetLoadingState,
     setTweets,
-    setTweetsLoadingState,
-    TweetsActionsType
+    setTweetsLoadingState
 } from "./actionCreators";
 import {TweetsApi} from "../../../services/api/tweetsApi";
 import {LoadingState} from "./contracts/state";
+import {TweetsActionsType} from "./contracts/actionTypes";
 
 export function* fetchTweetsRequest() {
     try {

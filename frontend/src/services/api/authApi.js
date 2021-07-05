@@ -6,10 +6,9 @@ export const AuthApi = {
         return data.data;
     },
     signUp: async (payload) => {
-      const {data} = await axios.post('/auth/registration', payload);
-      return data;
+      return await axios.post('/auth/registration', payload);
     },
-    getUserProfile: async () => {
+    getUserData: async () => {
         const {data} = await axios.get('/users/me');
         return data.data;
     }
